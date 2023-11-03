@@ -1,0 +1,103 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+   <context-param>
+	  <param-name>dburl</param-name>
+	  <param-value>jdbc:mysql://localhost:3306/estore</param-value>
+  </context-param>
+  <servlet>
+	<servlet-name>index</servlet-name>
+	<display-name>index</display-name>
+	<description></description>
+	<jsp-file>/index.jsp</jsp-file>
+  </servlet>
+  <servlet>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<display-name>LoginServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.gms.servlets.LoginServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Logout</servlet-name>
+  	<display-name>Logout</display-name>
+  	<description></description>
+  	<servlet-class>com.gms.servlets.Logout</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Profile</servlet-name>
+  	<display-name>Profile</display-name>
+  	<description></description>
+  	<servlet-class>com.gms.servlets.Profile</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>RegisterServlet</servlet-name>
+  	<display-name>RegisterServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.gms.servlets.RegisterServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>EditUser</servlet-name>
+  	<display-name>EditUser</display-name>
+  	<description></description>
+  	<servlet-class>com.gms.servlets.EditUser</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>DeleteUser</servlet-name>
+  	<display-name>DeleteUser</display-name>
+  	<description></description>
+  	<servlet-class>com.gms.servlets.DeleteUser</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AddParticipant</servlet-name>
+  	<display-name>AddParticipant</display-name>
+  	<description></description>
+  	<servlet-class>com.gms.servlets.AddParticipant</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>EditParticipant</servlet-name>
+  	<display-name>EditParticipant</display-name>
+  	<description></description>
+  	<servlet-class>com.gms.servlets.EditParticipant</servlet-class>
+  </servlet>
+	
+	<servlet-mapping>
+		<servlet-name>index</servlet-name>
+		<url-pattern>/index</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/LoginServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Logout</servlet-name>
+		<url-pattern>/Logout</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Profile</servlet-name>
+		<url-pattern>/Profile</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>RegisterServlet</servlet-name>
+		<url-pattern>/RegisterServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EditUser</servlet-name>
+		<url-pattern>/EditUser</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DeleteUser</servlet-name>
+		<url-pattern>/DeleteUser</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AddParticipant</servlet-name>
+		<url-pattern>/AddParticipant</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EditParticipant</servlet-name>
+		<url-pattern>/EditParticipant</url-pattern>
+	</servlet-mapping>
+  
+</web-app>

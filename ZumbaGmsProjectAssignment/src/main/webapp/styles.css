@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+.link-container {
+    text-align: center;
+}
+
+.link-container a {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.welcome {
+	text-align: right
+}
+
+.container {
+  border: none;
+  margin: 20px;
+  margin-left: 37%;
+}
+
+.container h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.container table {
+  border-collapse: collapse;
+}
+
+.container td {
+  padding: 5px;
+  border: none;
+}
+
+.label {
+  font-weight: bold;
+  text-align: left;
+}
+
+.right {
+	text-align: right;
+}
+
+.left{
+	text-align: left;
+}
+
+.form {
+	text-align: left;
+}
+
+.warningmessage {
+	font-size: 10px; 
+	color: red;
+}
