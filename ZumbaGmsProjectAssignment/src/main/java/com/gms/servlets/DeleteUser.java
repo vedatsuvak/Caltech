@@ -30,6 +30,7 @@ public class DeleteUser extends HttpServlet {
                 
                 if (rowsDeleted > 0) {
                 	session.setAttribute("actionSuccessful", true);
+                	session.setAttribute("userdeleted", true);
 	            	response.sendRedirect("success.jsp");
                 } else {
                     response.setContentType("text/html");

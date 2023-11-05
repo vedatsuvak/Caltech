@@ -30,6 +30,8 @@ rd.include(request, response);
 		} catch (NumberFormatException e) {
 		    // Handle the case when "bid" parameter is not a valid integer
 		    out.println("Invalid batch ID");
+            session.setAttribute("actionSuccessful", true);
+            session.setAttribute("editbatch", true);
 		    response.sendRedirect("error.jsp");
 		    return;
 		}
@@ -73,10 +75,14 @@ rd.include(request, response);
 <%
 	    } else {
 	        out.println("Batch with ID " + batchId + " not found.");
+	        session.setAttribute("actionSuccessful", true);
+	        session.setAttribute("editbatch", true);
 	        response.sendRedirect("error.jsp");
 	    }
 	} catch (ClassNotFoundException | SQLException e) {
 	    out.println("An error occurred while retrieving the Batch: " + e.getMessage());
+        session.setAttribute("actionSuccessful", true);
+        session.setAttribute("editbatch", true);	    
 	    response.sendRedirect("error.jsp");
 	}
 } else {

@@ -29,9 +29,13 @@ if (isLoggedIn && username.equalsIgnoreCase("admin")) {
 	int result = dao.insertBatch(batch);
     if (result > 0) {
     	session.setAttribute("actionSuccessful", true);
+    	session.setAttribute("addbatch", true);
     	response.sendRedirect("success.jsp");
     } else {
+    	session.setAttribute("actionSuccessful", true);
+    	session.setAttribute("addbatch", true);
     	response.sendRedirect("error.jsp");
+    	
     }
 %>
 

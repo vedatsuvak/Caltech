@@ -41,12 +41,16 @@
             if (rowsDeleted > 0) {
                 out.println("Participant with ID " + pid + " has been deleted successfully.");
                 session.setAttribute("actionSuccessful", true);
+                session.setAttribute("deleteparticipant", true);
                 response.sendRedirect("success.jsp");
             } else {
                 out.println("Failed to delete participant with ID " + pid + ".");
             }
         } catch (ClassNotFoundException | SQLException e) {
             out.println("An error occurred while deleting the participant: " + e.getMessage());
+            session.setAttribute("actionSuccessful", true);
+            session.setAttribute("deleteparticipant", true);
+            response.sendRedirect("error.jsp");
         }
     } else {
         // Other Users Restricted

@@ -42,6 +42,7 @@ public class EditParticipant extends HttpServlet {
 			if (result > 0) {
 				HttpSession session = request.getSession();
 				session.setAttribute("actionSuccessful", true);
+				session.setAttribute("useredited", true);
 				response.sendRedirect("success.jsp");
 			} else {
 				response.sendRedirect("error.jsp");

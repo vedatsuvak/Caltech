@@ -42,12 +42,16 @@
             if (rowsDeleted > 0) {
                 out.println("Batch with ID " + batchId + " has been deleted successfully.");
                 session.setAttribute("actionSuccessful", true);
+                session.setAttribute("deletebatch", true);
                 response.sendRedirect("success.jsp");
             } else {
                 out.println("Failed to delete batch with ID " + batchId + ".");
             }
         } catch (ClassNotFoundException | SQLException e) {
             out.println("An error occurred while deleting the batch: " + e.getMessage());
+            session.setAttribute("actionSuccessful", true);
+            session.setAttribute("deletebatch", true);
+            response.sendRedirect("error.jsp");
         }
     } else {
         // Other Users restricted

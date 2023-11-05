@@ -23,11 +23,14 @@ if (isLoggedIn && username.equalsIgnoreCase("admin")) {
 		batch.setStartDate(request.getParameter("startDate"));
 		result = dao.editBatch(batch);
 		if(result >0){
-			session.setAttribute("actionSuccessful", true);
-			response.sendRedirect("success.jsp");
+            session.setAttribute("actionSuccessful", true);
+            session.setAttribute("editbatch", true);
+            response.sendRedirect("success.jsp");
 		}
 	} catch (ClassNotFoundException | SQLException e) {
 		out.println("An error occurred while updating the Batch: " + e.getMessage());
+        session.setAttribute("actionSuccessful", true);
+        session.setAttribute("editbatch", true);
 		response.sendRedirect("error.jsp");
 	}
 } else {

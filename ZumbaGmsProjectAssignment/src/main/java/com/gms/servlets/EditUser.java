@@ -136,10 +136,12 @@ public class EditUser extends HttpServlet {
                 int result = dao.editUser(user, username);
                 if (oldusername.equalsIgnoreCase("admin") && result > 0) {
                     session.setAttribute("actionSuccessful", true);
+                    session.setAttribute("useredited", true);
                     response.sendRedirect("success.jsp");
                 } else if (!oldusername.equalsIgnoreCase("admin") && result > 0) {
                     session.setAttribute("username", newUsername);
                     session.setAttribute("actionSuccessful", true);
+                    session.setAttribute("useredited", true);
                     response.sendRedirect("success.jsp");
                 } else {
                     response.setContentType("text/html");

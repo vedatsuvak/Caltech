@@ -21,10 +21,13 @@ if (isLoggedIn && username.equalsIgnoreCase("admin")) {
 		result = dao.startBatch(bid);
 		if(result >0){
 			session.setAttribute("actionSuccessful", true);
+			session.setAttribute("startbatch", true);
 			response.sendRedirect("success.jsp");
 		}
 	} catch (ClassNotFoundException | SQLException e) {
 		out.println("An error occurred while updating the Batch: " + e.getMessage());
+        session.setAttribute("actionSuccessful", true);
+        session.setAttribute("startbatch", true);
 		response.sendRedirect("error.jsp");
 	}
 } else {
