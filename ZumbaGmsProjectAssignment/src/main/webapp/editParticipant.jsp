@@ -79,8 +79,8 @@ String username = (String) session.getAttribute("username");
 </html>
 <%
 	} else {
-		// Participant not found
-		response.getWriter().println("Participant not found.");
+		session.setAttribute("editparticipant", true);
+		session.setAttribute("error", true);
 		response.sendRedirect("error.jsp");
 		}
 	} else {

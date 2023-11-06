@@ -28,7 +28,7 @@ public class EditParticipant extends HttpServlet {
 		String email = request.getParameter("email");
 		int bid = Integer.parseInt(request.getParameter("bid"));
 		int pid = Integer.parseInt(request.getParameter("pid"));
-		
+		HttpSession session = request.getSession();
 		Participants participant = new Participants();
 		participant.setPname(pname);
 		participant.setAge(age);
@@ -36,24 +36,27 @@ public class EditParticipant extends HttpServlet {
 		participant.setPhone(phone);
 		participant.setEmail(email);
 		participant.setBid(bid);
-		participant.setPid(pid);		
+		participant.setPid(pid);
+		
 		try {
 			int result = dao.updateParticipant(participant);
 			if (result > 0) {
-				HttpSession session = request.getSession();
 				session.setAttribute("actionSuccessful", true);
 				session.setAttribute("useredited", true);
 				response.sendRedirect("success.jsp");
 			} else {
+				session.setAttribute("editparticipant", true);
+				session.setAttribute("error", true);
 				response.sendRedirect("error.jsp");
 				}
 			} catch (ClassNotFoundException | SQLException e) {
 				e.printStackTrace();
+				session.setAttribute("editparticipant", true);
+				session.setAttribute("error", true);
 				response.sendRedirect("error.jsp");
 			}
 		}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	response.sendRedirect("login.jsp");
 	}
-
 }

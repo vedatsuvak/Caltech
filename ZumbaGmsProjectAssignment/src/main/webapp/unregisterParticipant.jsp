@@ -44,13 +44,13 @@
                 response.sendRedirect("success.jsp");
             } else {
                 out.println("Failed to delete participant.");
-                session.setAttribute("actionSuccessful", true);
+                session.setAttribute("error", true);
                 session.setAttribute("deleteparticipant", true);
                 response.sendRedirect("error.jsp");
             }
         } catch (ClassNotFoundException | SQLException e) {
             out.println("An error occurred while deleting the participant: " + e.getMessage());
-            session.setAttribute("actionSuccessful", true);
+            session.setAttribute("error", true);
             session.setAttribute("deleteparticipant", true);
             response.sendRedirect("error.jsp");
         }

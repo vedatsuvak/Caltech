@@ -32,7 +32,6 @@ public class RegisterServlet extends HttpServlet {
     	    pw.println("<script type='text/javascript'>alert('" + warningMessage + "'); window.location.href = 'register.jsp';</script>");   	    
     	    return;
     	    
-    	    //todo password cross control
     	}else {       
 	     	RequestDispatcher rd=request.getRequestDispatcher("main.jsp");
 	 		rd.include(request, response);

@@ -19,10 +19,8 @@ String username = (String) session.getAttribute("username");
 UsersDAO dao = new UsersDAO();
 List<User> userList = dao.displayUsers();
 String bid = request.getParameter("bid");
-//include main
 RequestDispatcher rd = request.getRequestDispatcher("main.jsp");
 rd.include(request, response);
-// Admin
 
 %>
 <body class="link-container">

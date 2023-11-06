@@ -75,13 +75,13 @@ rd.include(request, response);
 <%
 	    } else {
 	        out.println("Batch with ID " + batchId + " not found.");
-	        session.setAttribute("actionSuccessful", true);
+	        session.setAttribute("error", true);
 	        session.setAttribute("editbatch", true);
 	        response.sendRedirect("error.jsp");
 	    }
 	} catch (ClassNotFoundException | SQLException e) {
 	    out.println("An error occurred while retrieving the Batch: " + e.getMessage());
-        session.setAttribute("actionSuccessful", true);
+        session.setAttribute("error", true);
         session.setAttribute("editbatch", true);	    
 	    response.sendRedirect("error.jsp");
 	}

@@ -33,17 +33,14 @@ public class DeleteUser extends HttpServlet {
                 	session.setAttribute("userdeleted", true);
 	            	response.sendRedirect("success.jsp");
                 } else {
-                    response.setContentType("text/html");
-                    pw.println("<html><body>");
-                    pw.println("<h2>Error occurred while deleting user.</h2>");
-                    pw.println("</body></html>");
+                	session.setAttribute("error", true);
+                	session.setAttribute("userdeleted", true);
+	            	response.sendRedirect("error.jsp");
                 }
             } catch (SQLException | ClassNotFoundException e) {
-                response.setContentType("text/html");
-                pw.println("<html><body>");
-                pw.println("<h2>Error occurred while deleting user.</h2>");
-                pw.println("</body></html>");
-                pw.println(e);
+            	session.setAttribute("error", true);
+            	session.setAttribute("userdeleted", true);
+            	response.sendRedirect("error.jsp");
             } 
         } else if (isLoggedIn && !username.equalsIgnoreCase("admin")) {
            
@@ -60,19 +57,14 @@ public class DeleteUser extends HttpServlet {
                     pw.println("<button type='submit'>Login Page</button></form>"); 
                     pw.println("</center></body></html>"); 
                 } else {
-                    // Display an error message
-                    response.setContentType("text/html");
-                    pw.println("<html><body><center>");
-                    pw.println("<h2>Error occurred while deleting user.</h2>");
-                    pw.println("</center></body></html>");
+                	session.setAttribute("error", true);
+                	session.setAttribute("userdeleted", true);
+                	response.sendRedirect("error.jsp");
                 }
             } catch (SQLException | ClassNotFoundException e) {
-                // Display an error message
-                response.setContentType("text/html");
-                pw.println("<html><body><center>");
-                pw.println("<h2>Database Error occurred while deleting user.</h2>");
-                pw.println("</center></body></html>");
-                pw.println(e);
+            	session.setAttribute("error", true);
+            	session.setAttribute("userdeleted", true);
+            	response.sendRedirect("error.jsp");
             }
         } else {
             response.sendRedirect("login.jsp");

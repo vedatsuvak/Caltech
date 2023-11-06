@@ -84,7 +84,6 @@ public class Profile extends HttpServlet {
                 pw.println("<h2>User details not found</h2>");
                 pw.println("</body></html>");
             }
-
         } else {
             // User is not logged in, redirect to login page
             response.sendRedirect("login.jsp");
