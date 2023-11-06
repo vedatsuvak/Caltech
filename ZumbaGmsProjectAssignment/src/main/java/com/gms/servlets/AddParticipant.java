@@ -58,14 +58,15 @@ public class AddParticipant extends HttpServlet {
                 //Check the participants if already added
                 result = participantsDAO.getParticipant(pname, bid);
                 if(result != null) {
-                	session.setAttribute("actionSuccessful", true);
-                	session.setAttribute("register", true);
+                	session.setAttribute("error", true);
+                	session.setAttribute("addingfailed", true);
                 	response.sendRedirect("error.jsp");
                 }else {
 	                int add = participantsDAO.insertParticipant(participant);
 	
 	                if (add > 0) {
 	                	session.setAttribute("actionSuccessful", true);
+	                	session.setAttribute("addparticipant", true);
 	                	response.sendRedirect("success.jsp");
 	                } else {
 	                    // Display an error message

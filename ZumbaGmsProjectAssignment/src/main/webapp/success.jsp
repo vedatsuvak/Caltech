@@ -10,6 +10,7 @@ boolean deletebatch = session.getAttribute("deletebatch") != null && (boolean) s
 boolean deleteparticipant = session.getAttribute("deleteparticipant") != null && (boolean) session.getAttribute("deleteparticipant");
 boolean editbatch = session.getAttribute("editbatch") != null && (boolean) session.getAttribute("editbatch");
 boolean startbatch = session.getAttribute("startbatch") != null && (boolean) session.getAttribute("startbatch");
+boolean addparticipant = session.getAttribute("addparticipant") != null && (boolean) session.getAttribute("addparticipant");
 
 // Remove the session attribute to prevent direct access to the page via URL
 session.removeAttribute("actionSuccessful");
@@ -20,6 +21,7 @@ session.removeAttribute("deletebatch");
 session.removeAttribute("deleteparticipant");
 session.removeAttribute("editbatch");
 session.removeAttribute("startbatch");
+session.removeAttribute("addparticipant");
 
 //Restrict direct access to page
 if (actionSuccessful) {
@@ -52,6 +54,8 @@ if (actionSuccessful) {
 	<%}if (startbatch){ %>
 	<h3>Batch Started successfully...!</h3>
 	<h3>Message Sent to all Participants...!</h3>
+	<%}if (addparticipant){ %>
+	<h3>Participant added successfully...!</h3>
 	<%} %>
 	
 </body>

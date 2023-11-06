@@ -49,7 +49,7 @@
             }
         } catch (ClassNotFoundException | SQLException e) {
             out.println("An error occurred while deleting the batch: " + e.getMessage());
-            session.setAttribute("actionSuccessful", true);
+            session.setAttribute("error", true);
             session.setAttribute("deletebatch", true);
             response.sendRedirect("error.jsp");
         }

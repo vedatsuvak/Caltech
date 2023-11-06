@@ -8,8 +8,8 @@
 </head>
 <%
 //Check if the action was successful
-boolean actionSuccessful = session.getAttribute("actionSuccessful") != null && (boolean) session.getAttribute("actionSuccessful");
-boolean register = session.getAttribute("register") != null && (boolean) session.getAttribute("register");
+boolean error = session.getAttribute("error") != null && (boolean) session.getAttribute("error");
+boolean addingfailed = session.getAttribute("addingfailed") != null && (boolean) session.getAttribute("addingfailed");
 boolean addbatch = session.getAttribute("addbatch") != null && (boolean) session.getAttribute("addbatch");
 boolean deletebatch = session.getAttribute("deletebatch") != null && (boolean) session.getAttribute("deletebatch");
 boolean deleteparticipant = session.getAttribute("deleteparticipant") != null && (boolean) session.getAttribute("deleteparticipant");
@@ -19,7 +19,7 @@ boolean startbatch = session.getAttribute("startbatch") != null && (boolean) ses
 
 //Remove the session attribute to prevent direct access to the page via URL
 session.removeAttribute("actionSuccessful");
-session.removeAttribute("register");
+session.removeAttribute("addingfailed");
 session.removeAttribute("addbatch");
 session.removeAttribute("deletebatch");
 session.removeAttribute("deleteparticipant");
@@ -28,17 +28,16 @@ session.removeAttribute("showparticipants");
 session.removeAttribute("startbatch");
 
 //Restrict direct access to page
-if (actionSuccessful) {
+if (error) {
 	 // Check if the user is logged in
 	 boolean isLoggedIn = session.getAttribute("username") != null;
 	 if (isLoggedIn) { 
 %>
 <body>
 	<h2>Something went wrong...!</h2>
-	<% if (register){ %>
+	<% if (addingfailed){ %>
 	<h3>User already registered...!</h3>
-	<%} %>
-	<% if (addbatch){ %>
+	<%}if (addbatch){ %>
 	<h3>Batch adding failed...!</h3>
 	<%}if (deletebatch){ %>
 	<h3>Batch deleting failed...!</h3>

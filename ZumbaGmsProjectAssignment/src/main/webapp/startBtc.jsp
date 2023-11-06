@@ -26,7 +26,7 @@ if (isLoggedIn && username.equalsIgnoreCase("admin")) {
 		}
 	} catch (ClassNotFoundException | SQLException e) {
 		out.println("An error occurred while updating the Batch: " + e.getMessage());
-        session.setAttribute("actionSuccessful", true);
+        session.setAttribute("error", true);
         session.setAttribute("startbatch", true);
 		response.sendRedirect("error.jsp");
 	}

@@ -30,7 +30,7 @@ try {
     	bid = Integer.parseInt(request.getParameter("bid"));    
 	} catch (NumberFormatException e) {
 	    out.println("Invalid batch ID");
-        session.setAttribute("actionSuccessful", true);
+        session.setAttribute("error", true);
         session.setAttribute("showparticipants", true);
 	    response.sendRedirect("error.jsp");
     return;

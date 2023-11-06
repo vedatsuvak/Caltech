@@ -32,7 +32,7 @@ if (isLoggedIn && username.equalsIgnoreCase("admin")) {
     	session.setAttribute("addbatch", true);
     	response.sendRedirect("success.jsp");
     } else {
-    	session.setAttribute("actionSuccessful", true);
+    	session.setAttribute("error", true);
     	session.setAttribute("addbatch", true);
     	response.sendRedirect("error.jsp");
     	
