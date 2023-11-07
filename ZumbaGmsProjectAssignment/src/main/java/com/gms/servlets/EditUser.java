@@ -61,7 +61,6 @@ public class EditUser extends HttpServlet {
                     html.append("<tr class='link-container'><td colspan='3'><input type='submit' value='Save Changes'></td>");
                     html.append("</table></form>");
                     html.append("</div></body></html>");
-
                     pw.println(html.toString());
                 } else {
                     pw.println(username + " not found.");
@@ -90,7 +89,6 @@ public class EditUser extends HttpServlet {
                     html.append("<tr class='link-container'><td colspan='3'><input type='submit' value='Save Changes'></td>");
                     html.append("</table></form>");
                     html.append("</div></body></html>");
-
                     pw.println(html.toString());
                 } else {
                     response.setContentType("text/html");

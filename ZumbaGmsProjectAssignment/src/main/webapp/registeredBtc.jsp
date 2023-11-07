@@ -25,7 +25,7 @@ String username = (String) session.getAttribute("username");
 HttpServletResponse httpResponse = (HttpServletResponse) response;
 List<Integer> bids = new ArrayList<>();
 List<Integer> pids = new ArrayList<>();
-//admin
+
 if (isLoggedIn) {
     ParticipantsDAO pdao = new ParticipantsDAO();
     List<Participants> plist = pdao.BatchParticipants(username);
@@ -37,8 +37,7 @@ if (isLoggedIn) {
     	bids.add(bid);
     	pids.add(pid);
     	blist.add(bdao.displayBatch(bid));
-    }
-    	
+    }	
 %>
     <div style="text-align: center;">
         <h1><i>List of Registered Batches</i></h1>
@@ -66,7 +65,6 @@ if (isLoggedIn) {
         </table>
     </div>
 <%
-
 //If not logged in
 } else {
     // User is not logged in

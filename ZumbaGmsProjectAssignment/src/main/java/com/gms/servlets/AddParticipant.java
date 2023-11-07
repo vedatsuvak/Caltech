@@ -32,7 +32,6 @@ public class AddParticipant extends HttpServlet {
             throws ServletException, IOException {
 
         PrintWriter pw = response.getWriter();
-
         try {
             // Get the user input from the request parameters
             UsersDAO userDao = new UsersDAO();
@@ -41,7 +40,6 @@ public class AddParticipant extends HttpServlet {
             String pname = request.getParameter("name");
             User user = userDao.displayUser(pname);
             HttpSession session = request.getSession();
-
             if (user != null) {
                 String email = user.getEmail();
                 int age = Integer.parseInt(request.getParameter("age"));
@@ -61,9 +59,9 @@ public class AddParticipant extends HttpServlet {
                 	session.setAttribute("error", true);
                 	session.setAttribute("addingfailed", true);
                 	response.sendRedirect("error.jsp");
+                //If not added then
                 }else {
-	                int add = participantsDAO.insertParticipant(participant);
-	
+	                int add = participantsDAO.insertParticipant(participant);	
 	                if (add > 0) {
 	                	session.setAttribute("actionSuccessful", true);
 	                	session.setAttribute("addparticipant", true);

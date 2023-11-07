@@ -5,7 +5,7 @@
 boolean isLoggedIn = session.getAttribute("username") != null;
 String username = (String) session.getAttribute("username");
 
-// Admin has right to register any new user
+// Admin has right to register any new user while logged in
 if (!isLoggedIn || username.equalsIgnoreCase("admin")) {  
 %>
 <!DOCTYPE html>

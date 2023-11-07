@@ -21,7 +21,7 @@
     
   	//Only Admin
     if (isLoggedIn && username.equalsIgnoreCase("admin")) {
-        // Get the product ID from the request parameter
+        // Get the participantID from the request parameter
         try {
         	pid = Integer.parseInt(request.getParameter("pid"));
         } catch (NumberFormatException e) {
@@ -34,12 +34,11 @@
             Participants prt = new Participants();
             prt.setPid(pid);
 
-            // Delete the product from the database
-            int rowsDeleted = dao.deleteParticipant(pid);
+            // Delete participant from the database
+            int unregister = dao.deleteParticipant(pid);
 
-            // Check if the deletion was successful
-            if (rowsDeleted > 0) {
-                out.println("Participant with ID " + pid + " has been deleted successfully.");
+            if (unregister > 0) {
+                out.println("Participant with ID " + pid + " unregistered successfully.");
                 session.setAttribute("actionSuccessful", true);
                 session.setAttribute("deleteparticipant", true);
                 response.sendRedirect("success.jsp");

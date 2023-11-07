@@ -33,9 +33,10 @@ public class LoginServlet extends HttpServlet {
 	        String username = request.getParameter("user");
 	        String password = request.getParameter("pwd");	
 	        UsersDAO dao = new UsersDAO();
+	        //Check DB if user exist
 	        boolean loginSuccessful = dao.login(username, password);	
 	        if (loginSuccessful) {
-	            // User exists, create a session and redirect to the home page
+	            // User exists, create a session and redirect to the profile page
 	            HttpSession session = request.getSession();
 	            session.setAttribute("username", username);
 	            RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
@@ -47,20 +48,13 @@ public class LoginServlet extends HttpServlet {
 	            pw.println("<h2>Invalid username or password</h2>");
 	            pw.println("</center></body></html>");
 	        }
-	    } catch (ClassNotFoundException e) {
+	    } catch (ClassNotFoundException | SQLException e) {
 	    	// Display an error message
 		    response.setContentType("text/html");
 		    pw.println("<html><body><center");
 		    pw.println("<h2>Error occurred while logging in!</h2>");
 		    pw.println("</center</body></html>");
 		    pw.println(e);
-		} catch (SQLException e) {
-		    // Display an error message
-		    response.setContentType("text/html");
-		    pw.println("<html><body><center>");
-		    pw.println("<h2>Error occurred while logging in!</h2>");
-		    pw.println("</center></body></html>");
-		    pw.println(e);
-		}
+		} 
 	}
 }

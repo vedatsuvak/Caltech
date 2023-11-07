@@ -54,7 +54,7 @@ rd.include(request, response);
 					<td class = "left"><input type="text" name="bname" value="<%= selectedBatch.getBname().toUpperCase() %>" pattern="^[A-Za-z0-9_-]{5,30}$" title="letters, numbers, underscores, and hyphens. Length between 5 and 30 characters." required></td></tr>
 				<tr>
 				    <td class="right">Instructor</td>
-				    <td>
+				    <td> <!-- Setting instructor table and getting data from DB is optional -->
 				        <select name="instructor" required>
 				            <option value="VEDAT">VEDAT</option>
 				            <option value="KARTHIK">KARTHIK</option>

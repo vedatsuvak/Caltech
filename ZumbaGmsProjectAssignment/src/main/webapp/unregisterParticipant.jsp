@@ -17,7 +17,6 @@
 	String username = (String) session.getAttribute("username");
     int bid = 0;
     
-  	//Only Admin
     if (isLoggedIn) {
         // Get the product ID from the request parameter
         try {
@@ -55,7 +54,7 @@
             response.sendRedirect("error.jsp");
         }
     } else {
-        // Other Users Restricted
+        // If not logged in entry Restricted
         response.sendRedirect("login.jsp");
     }
 %>

@@ -41,9 +41,9 @@ if (actionSuccessful) {
     <h3 class="link-container"><i>The action has been done successfully...!!</i></h3>
     <% if (userdeleted){ %>
 	<h3>User deleted...!</h3>
-	<%} if (useredited){ %>
+	<%}if (useredited){ %>
 	<h3>User edited successfully...!</h3>
-	<%}  if (addbatch){ %>
+	<%}if (addbatch){ %>
 	<h3>Batch added successfully...!</h3>
 	<%}if (deletebatch){ %>
 	<h3>Batch deleted successfully...!</h3>

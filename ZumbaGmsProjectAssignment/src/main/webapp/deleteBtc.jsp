@@ -20,9 +20,9 @@
     String username = (String) session.getAttribute("username");
     int batchId = 0;
 	
-    //Only Admin Allowed
+    //Only Admin
     if (isLoggedIn && username.equalsIgnoreCase("admin")) {
-        // Get the product ID from the request parameter
+        // Get the Batch ID from the request parameter
         try {
             batchId = Integer.parseInt(request.getParameter("bid"));
         } catch (NumberFormatException e) {
@@ -36,10 +36,10 @@
             batch.setBid(batchId);
 
             // Delete the batch from the database
-            int rowsDeleted = dao.deleteBatch(batchId);
+            int deletebatch = dao.deleteBatch(batchId);
 
             // Check if the deletion was successful
-            if (rowsDeleted > 0) {
+            if (deletebatch > 0) {
                 out.println("Batch with ID " + batchId + " has been deleted successfully.");
                 session.setAttribute("actionSuccessful", true);
                 session.setAttribute("deletebatch", true);

@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script>
 		function confirmDelete() {
-		    return confirm("Are you sure to DELETE Participant?");
+		    return confirm("Are you sure to Unregister Participant?");
 		}
 	</script>
     <title>Zumba</title>
@@ -40,7 +40,7 @@ if (isLoggedIn && username.equalsIgnoreCase("admin")) {
 	List<Participants> list = dao.BatchParticipants(bid);
 %>
     <div style="text-align: center;">
-        <h1><i>List of Participants Batch :<%= bid %></i></h1>
+        <h1><i>List of Participants in Batch :<%= bid %></i></h1>
 	       <form action="addParticipant.jsp" method="POST">
 			    <label for="name"></label>
 			    <input type="hidden" id="bid" name="bid" value="<%= bid %>"><br>			    
@@ -55,7 +55,7 @@ if (isLoggedIn && username.equalsIgnoreCase("admin")) {
                 <th>Phone</th>
                 <th>Email</th>
                 <th>Edit Action</th>
-                <th>Delete Action</th>
+                <th>Unregister</th>
             </tr>
             <% for (Participants p : list) { %>
                 <tr>
@@ -66,7 +66,7 @@ if (isLoggedIn && username.equalsIgnoreCase("admin")) {
                     <td><%= p.getPhone() %></td>
                     <td><%= p.getEmail().toLowerCase() %></td>
 					<td><button onclick="window.location.href='editParticipant.jsp?pid=<%= p.getPid() %>'" value="<%= request.getParameter("pid") %>">Edit Participant</button></td>                    
-					<td><button onclick="if(confirmDelete()) { window.location.href='deleteParticipant.jsp?pid=<%= p.getPid() %>'; }">Delete Participant</button></td>
+					<td><button onclick="if(confirmDelete()) { window.location.href='deleteParticipant.jsp?pid=<%= p.getPid() %>'; }">Unregister Participant</button></td>
                 </tr>
             <% } 
             RequestDispatcher rd = request.getRequestDispatcher("main.jsp");
@@ -107,7 +107,6 @@ if (isLoggedIn && username.equalsIgnoreCase("admin")) {
         </table>
     </div>
 <%
-//Redirect Login
 } else {
     // User is not logged in
     HttpServletResponse httpResponse = (HttpServletResponse) response;

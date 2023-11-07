@@ -34,7 +34,7 @@ if (isLoggedIn && username.equalsIgnoreCase("admin")) {
 		response.sendRedirect("error.jsp");
 	}
 } else {
-    // User is not logged in, redirect to login page or show an error message
+    // Others restricted
     response.sendRedirect("login.jsp");
 }
 %>

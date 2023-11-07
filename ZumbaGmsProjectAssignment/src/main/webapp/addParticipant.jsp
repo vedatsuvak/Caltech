@@ -21,7 +21,6 @@ List<User> userList = dao.displayUsers();
 String bid = request.getParameter("bid");
 RequestDispatcher rd = request.getRequestDispatcher("main.jsp");
 rd.include(request, response);
-
 %>
 <body class="link-container">
     <h1><i>Adding Participant</i></h1>
@@ -41,8 +40,8 @@ rd.include(request, response);
                 <td class="right">Participant Name</td>
                 <td> <select name="name" size="3" required>
                 <%for(User user : userList) {  %>
-                     	<option value="<%= user.getUsername() %>"><%= user.getUsername().toUpperCase() %></option>
-                     	<% } %>
+                     <option value="<%= user.getUsername() %>"><%= user.getUsername().toUpperCase() %></option>
+                <% } %>
                 </select></td>
             </tr>
                 <%
@@ -51,10 +50,11 @@ rd.include(request, response);
             	<td class="right">Participant Name</td>
 			    <td><%= username.toUpperCase() %><input type="hidden" name="name" value="<%= username %>" required></td>
 			</tr>
-			            <%}else {
-			                // User is not logged in
-			                response.sendRedirect("login.jsp");
-			            } %>
+			    <%
+			    }else {
+			  		// User is not logged in
+			  		response.sendRedirect("login.jsp");
+			  	}%>     
             <tr>
                 <td class="right">Age</td>
                 <td><input type="text" name="age" pattern="^(0?[1-9]|[1-9][0-9])$" title="Enter a valid age between 1 and 99." required></td>

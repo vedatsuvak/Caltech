@@ -42,7 +42,7 @@
        <a href="./Logout">Logout</a>
    </div>
 	<%
-	//not user or not login 
+	//not user or not logged in 
 	} else {
 	%>
    <div class="link-container">

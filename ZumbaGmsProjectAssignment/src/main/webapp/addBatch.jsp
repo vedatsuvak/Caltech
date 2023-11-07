@@ -3,7 +3,6 @@
 <%@ page import="com.gms.dao.BatchDAO"%>
 <%@ page import="com.gms.pojo.Batch"%>
 <%@ page import="java.util.*"%>
-
 <%
 boolean isLoggedIn = session.getAttribute("username") != null;
 String username = (String) session.getAttribute("username");
@@ -46,7 +45,6 @@ if (isLoggedIn && username.equalsIgnoreCase("admin")) {
 <%
 // Other Users Restricted
 } else {
-    // User is not logged in, redirect to login page or show an error message
     response.sendRedirect("login.jsp");
 }
 %>

@@ -9,7 +9,7 @@
 <%
 boolean isLoggedIn = session.getAttribute("username") != null;
 String username = (String) session.getAttribute("username");
-// Admin
+// Only Admin
 if (isLoggedIn && username.equalsIgnoreCase("admin")) {
 %>
 <!DOCTYPE html>
@@ -34,11 +34,9 @@ if (isLoggedIn && username.equalsIgnoreCase("admin")) {
     } else {
     	session.setAttribute("error", true);
     	session.setAttribute("addbatch", true);
-    	response.sendRedirect("error.jsp");
-    	
+    	response.sendRedirect("error.jsp");   	
     }
 %>
-
 </body>
 </html>
 <%
