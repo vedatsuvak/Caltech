@@ -18,7 +18,7 @@
 	if (isLoggedIn && username.equalsIgnoreCase("admin")) {
 	%>
     <div class="welcome">
-        <p>Welcome <%= username.toUpperCase() %>! You are logged in.</p>
+        <p>Welcome <%= username.toUpperCase() %>! You are logged in. <%= new java.util.Date() %></p>
     </div>
     <div class="link-container">
         <a href="./Profile">Profile</a>       
