@@ -6,7 +6,7 @@
   <display-name>Archetype Created Web Application</display-name>
    <context-param>
 	  <param-name>dburl</param-name>
-	  <param-value>jdbc:mysql://localhost:3306/estore</param-value>
+	  <param-value>jdbc:mysql://localhost:3306/zumba</param-value>
   </context-param>
   <servlet>
 	<servlet-name>index</servlet-name>
